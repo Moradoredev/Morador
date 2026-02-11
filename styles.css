@@ -1,0 +1,759 @@
+/* CONFIGURACIÓN GENERAL */
+html { scroll-behavior: smooth; }
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* --- BARRA DE NAVEGACIÓN (CON HAMBURGUESA) --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.98); /* Un poco más sólido para que no se traslparen las letras al bajar */
+    z-index: 1000;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 15px 0;
+}
+
+/* Botón de Hamburguesa (Oculto por defecto en PC) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Animación de las líneas del botón */
+.menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+    opacity: 0; /* La línea del medio desaparece */
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* --- RESPONSIVE PARA MÓVILES (Ajuste Final) --- */
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: flex; /* ¡ESTO hace que las líneas aparezcan! */
+    }
+
+    .nav-links {
+        display: none; /* Se mantiene oculto al inicio */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 2px solid #ff0000;
+    }
+
+    /* Clase que activa el JavaScript para mostrar el menú */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        margin: 15px 0;
+        font-size: 1.1rem;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 80px 5%;
+    }
+    
+    /* Forzamos que el menú se comporte como una lista vertical y no horizontal */
+    .nav-links {
+        display: none !important; /* Se mantiene oculto hasta que JS lo active */
+        flex-direction: column;
+        gap: 0;
+        background: rgba(0, 0, 0, 0.98);
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 2px solid #ff0000;
+    }
+
+    /* Esta es la regla que lo muestra cuando tocas el botón */
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links a {
+        margin: 12px 0;
+        font-size: 0.95rem;
+        display: block; /* Asegura que cada link ocupe su propia línea */
+    }
+    
+    .username {
+        font-size: 2.2rem;
+    }
+
+    .foto-marco {
+        width: 280px;
+        height: 360px;
+    }
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* ESTILO DEL LOGO </> */
+.logo-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.logo-code .bracket {
+    color: #fff;
+    margin-right: 5px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.logo-code .dot-dev {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* ESTILO DE LOS LINKS - CORREGIDO */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff0000;
+}
+
+/* ESTILO DE SECCIONES */
+section {
+    min-height: 100vh;
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.highlight { 
+    color: #ff0000; 
+    font-weight: 900; 
+}
+
+/* 1. SECCIÓN HOGAR */
+#hogar {
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+/* Estilo del Nombre Principal con Neón Suave */
+.username {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6); 
+    animation: parpadeo 5s infinite;
+    min-height: 1.2em;
+}
+
+/* Animación de Parpadeo (Flicker) tipo letrero viejo */
+@keyframes parpadeo {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.7;
+    }
+}
+
+/* Suavizar el pulso del rol */
+.glow-red {
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+/* 2. SECCIÓN ACERCA DE MÍ */
+#acerca { 
+    background-color: #fff; 
+    color: #000; 
+}
+
+.acerca-container { 
+    display: flex; 
+    gap: 50px; 
+    align-items: center; 
+}
+
+.foto-marco {
+    width: 350px;
+    height: 450px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px #ff0000;
+}
+
+.botones-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* El botón rojo de "Descargar CV" */
+.btn-principal-cv {
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.btn-principal-cv:hover {
+    transform: scale(1.05);
+    background-color: #cc0000;
+}
+
+/* Estilo de los círculos rojos */
+.iconos-sociales-wrap {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.icon-circle:hover {
+    transform: translateY(-5px);
+    background-color: #000;
+}
+
+/* Ajuste para los iconos dentro del círculo */
+.icon-circle img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1);
+}
+
+/* 3. SECCIÓN HABILIDADES */
+#habilidades { 
+    background-color: #fff; 
+    color: #000; 
+    border-top: 1px solid #eee; 
+}
+
+.skills-wrapper { 
+    display: flex; 
+    gap: 100px;
+    align-items: flex-start; 
+}
+
+.skills-text { flex: 1; }
+.skills-bars { flex: 1; }
+
+.skill-item { margin-bottom: 25px; }
+.skill-info { 
+    display: flex; 
+    justify-content: space-between; 
+    font-weight: bold; 
+    margin-bottom: 8px; 
+}
+
+.progress-bg { 
+    background: #eee; 
+    height: 8px; 
+    border-radius: 4px; 
+}
+
+.progress-fill { 
+    background: #ff0000; 
+    height: 100%; 
+    border-radius: 4px; 
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* 4. SECCIÓN EQUIPO DE TRABAJO */
+#equipo-trabajo {
+    background-color: #fff;
+    color: #000;
+    padding: 100px 10%;
+    border-top: 1px solid #eee;
+}
+
+.equipo-wrapper {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.setup-col, .colab-col {
+    flex: 1;
+    min-width: 320px;
+}
+
+/* RECUADRO NEGRO PARA CARACTERÍSTICAS PC */
+.setup-card-negra {
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.setup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.setup-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+    font-size: 1rem;
+}
+
+.setup-list li:last-child { border-bottom: none; }
+
+.setup-list li strong {
+    color: #ff0000;
+    display: inline-block;
+    width: 140px;
+}
+
+/* TARJETAS DE COLABORADORES */
+.colab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.colab-card {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    transition: 0.3s ease;
+}
+
+.colab-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-5px);
+}
+
+.colab-card strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.colab-card span {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* 5. SECCIÓN PROYECTOS */
+#cartera {
+    background-color: #000;
+    color: #fff;
+    padding: 100px 10%;
+}
+
+.grid-juegos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.juego-card {
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.4s;
+}
+
+.juego-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+.juego-img {
+    height: 200px;
+    position: relative;
+    background-color: #222;
+}
+
+.juego-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.tag {
+    background: rgba(255, 0, 0, 0.8);
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.juego-info { padding: 20px; }
+
+.juego-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-mini {
+    background: #ff0000;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.btn-mini-sec {
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* 6. SECCIÓN VIDEOS */
+#videos {
+    background-color: #000;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.video-container {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.perfil-video {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 15px;
+}
+
+.avatar-mini {
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    border-radius: 50%;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.btn-canal-neon {
+    font-size: 0.75rem;
+    color: #ff0000;
+    text-decoration: none;
+    border: 1px solid #ff0000;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-canal-neon:hover {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+.grid-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.video-card {
+    background-color: #111;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    border: 1px solid #222;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(3);
+}
+
+.video-card:hover {
+    filter: none;
+    transform: scale(1.03);
+    border-color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.video-overlay-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.video-card:hover .video-overlay-play {
+    color: #ff0000;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.video-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* 7. SECCIÓN CONTACTO */
+#contacto {
+    padding: 80px 10%;
+    background-color: #000;
+    text-align: center;
+}
+
+.contacto-header {
+    margin-bottom: 50px;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contacto-card {
+    background: #0a0a0a;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #1a1a1a;
+    transition: 0.3s;
+}
+
+.contacto-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-5px);
+}
+
+.contacto-card h3 {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.card-destacada {
+    border: 1px solid #ff0000;
+}
+
+/* MANTÉN ESTO - Botón "Invítame un café" */
+.btn-paypal-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #0070ba;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-paypal-mini:hover {
+    background: rgba(0, 112, 186, 0.1);
+    transform: scale(1.05);
+}
+
+.btn-paypal-mini:hover {
+    background: rgba(0, 112, 186, 0.1);
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    padding: 40px;
+    background: #050505;
+    border-top: 1px solid #111;
+    color: #444;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links a {
+        margin-left: 15px;
+        font-size: 0.75rem;
+    }
+    
+    .acerca-container {
+        flex-direction: column;
+    }
+    
+    .skills-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .equipo-wrapper {
+        flex-direction: column;
+    }
+    
+    .colab-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-juegos {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-videos {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .perfil-video {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .apoyo-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .username {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 80px 5%;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        margin-left: 10px;
+        font-size: 0.7rem;
+    }
+    
+    .foto-marco {
+        width: 280px;
+        height: 360px;
+    }
+    
+    .botones-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .iconos-sociales-wrap {
+        margin-top: 15px;
+    }
+    
+    .video-card {
+        aspect-ratio: 16/9;
+    }
+}
