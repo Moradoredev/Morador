@@ -14,10 +14,12 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.98); /* Un poco más sólido para que no se traslparen las letras al bajar */
-    z-index: 1000;
-    border-bottom: 1px solid #1a1a1a;
     padding: 15px 0;
+    background-image: url('img/banner.gif.gif');
+    background-size: cover;
+    background-position: center;
+    z-index: 1000;
+    border-bottom: 2px solid #ff0000; /* Línea roja abajo para que resalte */
 }
 
 /* Botón de Hamburguesa (Oculto por defecto en PC) */
@@ -193,7 +195,12 @@ section {
 
 /* 1. SECCIÓN HOGAR */
 #hogar {
-    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Fondo personal.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Asegura que la sección tenga altura para mostrar la imagen */
+    display: flex;
 }
 
 /* Estilo del Nombre Principal con Neón Suave */

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Animación para alias (MORADOR / CLOP)
     var typedNombre = new Typed('#nombre-dinamico', {
-        strings: ['MORADOR', 'CLOP'], 
+        strings: ['MORADOR', 'CLOP_Gamer21'], 
         typeSpeed: 80,
         backSpeed: 60,
         backDelay: 2500,
