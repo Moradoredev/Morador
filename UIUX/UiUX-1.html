@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVGTN — Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="UiUX-1.css">
+</head>
+
+<body>
+
+  <!-- BARRA DE PROGRESO -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">NV</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" id="ownerLink">Owner <span id="animStatus" style="font-size:9px;opacity:0.6;">(OFF)</span></a>
+      </li>
+      <li>
+        <a href="#" id="infoLink">Info</a>
+        <div class="info-tooltip" id="infoTooltip">
+          Inspírate en los trabajos de grandes artistas. Cada proyecto cuenta una historia única.
+        </div>
+      </li>
+      <li class="posts-dropdown">
+        <a href="#" id="postsLink">Posts</a>
+        <div class="posts-menu" id="postsMenu">
+          <div class="posts-menu-item" onclick="changeTemplate('Otros personajes')">🎨 Diseño Minimalista</div>
+          <div class="posts-menu-item" onclick="changeTemplate('Saber herna')">🌈 Estilo Vibrante</div>
+          <div class="posts-menu-item" onclick="changeTemplate('Goku')">✨ Tema Elegante</div>
+          <div class="posts-menu-item" onclick="changeTemplate('Naruto')">🌙 Modo Oscuro Puro</div>
+          <div class="posts-menu-item" onclick="changeTemplate('Luffy')">⚡ Estilo Futurista</div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="brand-tag">DV Morador</span>
+      <h1 class="hero-title">
+        <span class="outline">Saber</span>
+        <span>Artoria</span>
+        <span class="red">Pendragon</span>
+      </h1>
+      <p class="hero-subtitle">
+        Que es el nombre de su Noble Phantasm y lo grite al usar
+        su ataque mas poderoso. Un rey debe ser noble por encima de todo.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Read more →</a>
+        <a href="#" class="btn-outline">Ver trabajos</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="anime-figure">
+        <img src="UX.IMAN/descarga.jpg" alt="character"
+          style="width:100%; height:100%; object-fit:cover; object-position: top center;">
+      </div>
+    </div>
+
+    <div class="bg-watermark">MORADOR</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="dot"></span>Diseño Gráfico</span>
+      <span class="marquee-item"><span class="dot"></span>UI/UX</span>
+      <span class="marquee-item"><span class="dot"></span>Ilustración Anime</span>
+      <span class="marquee-item"><span class="dot"></span>Creacion de web</span>
+      <span class="marquee-item"><span class="dot"></span>UI / UX</span>
+      <span class="marquee-item"><span class="dot"></span>Identidad Visual</span>
+      <span class="marquee-item"><span class="dot"></span>Motion Design</span>
+      <span class="marquee-item"><span class="dot"></span>Diseño Gráfico</span>
+      <span class="marquee-item"><span class="dot"></span>Arte Digital</span>
+      <span class="marquee-item"><span class="dot"></span>Ilustración Anime</span>
+      <span class="marquee-item"><span class="dot"></span>Branding</span>
+      <span class="marquee-item"><span class="dot"></span>UI / UX</span>
+      <span class="marquee-item"><span class="dot"></span>Identidad Visual</span>
+      <span class="marquee-item"><span class="dot"></span>Motion Design</span>
+    </div>
+  </div>
+
+  <!-- PROYECTOS -->
+  <section class="section scroll-reveal">
+    <div class="section-header">
+      <div>
+        <p class="section-num">01 / Trabajos</p>
+        <h2 class="section-title"><span class="accent-line"></span>NARRATIVA</h2>
+      </div>
+      <a href="#" class="btn-outline">Ver todos</a>
+    </div>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-bg work-bg-1"></div>
+        <div class="work-overlay"><span class="work-overlay-btn">Ver proyecto</span></div>
+        <div class="work-label">
+          <h3>Historia</h3>
+          <p>Recorrido</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-bg work-bg-2"></div>
+        <div class="work-overlay"><span class="work-overlay-btn">Ver proyecto</span></div>
+        <div class="work-label">
+          <h3>Fate</h3>
+          <p>Obra/Anime/Manga</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-bg work-bg-3"></div>
+        <div class="work-overlay"><span class="work-overlay-btn">Ver proyecto</span></div>
+        <div class="work-label">
+          <h3>Artoria</h3>
+          <p>P/N</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about-strip scroll-reveal">
+    <div class="stat">
+      <span class="stat-num">01</span>
+      <span class="stat-label">Diseños</span>
+    </div>
+    <div class="divider"></div>
+    <div class="about-text">
+      <h2>Sobre MORADOR</h2>
+      <p>Propiedad de (Dv,Morador) por favor no hacer pasar por suyo. esto es una practica
+        de UI/UX, no un portafolio real. Inspirado en el trabajo de grandes artistas. 
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 NVGTN — Villfiiworks</p>
+    <div class="footer-socials">
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pixiv</a>
+    </div>
+  </footer>
+
+  <script src="UiUX-1.js"></script>
+</body>
+
+</html>
