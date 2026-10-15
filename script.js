@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. TYPED.JS — Alias y Roles animados
     // ============================================================
     var typedNombre = new Typed('#nombre-dinamico', {
-        strings: ['MORADOR', 'CLOP_Gamer21'],
+        strings: ['MORADOR'],
         typeSpeed: 80,
         backSpeed: 60,
         backDelay: 2500,

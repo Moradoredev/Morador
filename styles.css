@@ -679,6 +679,18 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contacto-card {
+        min-width: 0;
+    }
+
+    .contacto-card a {
+        overflow-wrap: anywhere;
+    }
+
     .nav-links a {
         margin-left: 15px;
         font-size: 0.75rem;
@@ -814,7 +826,13 @@ footer {
     padding-bottom: 80px;
 }
 
-#hogar > * {
+#hogar > #particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+#hogar > :not(#particulas) {
     position: relative;
     z-index: 1;
 }
